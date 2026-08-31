@@ -44,23 +44,23 @@
    CSS Custom Properties
    ================================================================ */
 :root {
-  --accent-1:        #1e40af;
-  --accent-2:        #2563eb;
-  --accent-sky:      #38bdf8;
-  --accent-light:    #dbeafe;
-  --grad-accent:     linear-gradient(135deg, #1e40af, #2563eb);
-  --grad-progress:   linear-gradient(to right, #1e40af, #38bdf8);
-  --surface:         #ffffff;
-  --bg-page:         #f4f7fb;
-  --text-primary:    #1e293b;
-  --text-muted:      #64748b;
-  --border:          #e2e8f0;
-  --shadow-sm:       0 1px 4px rgba(0,0,0,0.07);
-  --shadow-md:       0 4px 16px rgba(30,64,175,0.10);
-  --shadow-lg:       0 10px 32px rgba(30,64,175,0.14);
-  --radius:          10px;
-  --radius-sm:       6px;
-  --ease:            cubic-bezier(0.4, 0, 0.2, 1);
+  --accent-1: #6B1F33;
+  --accent-2: #7A263A;
+  --accent-sky: #9A4A5E;
+  --accent-light: #F1E5E8;
+
+  --grad-accent: linear-gradient(135deg, #6B1F33, #7A263A);
+  --grad-progress: linear-gradient(to right, #6B1F33, #9A4A5E);
+
+  --surface: #ffffff;
+  --bg-page: #f5f5f5;
+
+  --text-primary: #333333;
+  --text-muted: #707070;
+  --border: #dddddd;
+
+  --shadow-sm: 0 1px 4px rgba(0,0,0,0.07);
+  --shadow-md: 0 4px 16px rgba(0,0,0,0.08);
 }
 
 /* ================================================================
@@ -209,7 +209,9 @@ body {
   h1 {
     font-weight: 700;
     letter-spacing: -0.025em;
-    color: var(--text-primary);
+    color: var(--accent-1);
+    background: none;
+    -webkit-text-fill-color: initial;
     border-bottom: none;
     padding-left: 1rem;
     border-left: 4px solid var(--accent-2);
@@ -466,17 +468,13 @@ hr {
    DESIGN LAYER v2 — More visual character
    ================================================================ */
 
-/* 1. Dot grid texture on page background */
 body {
-  background-image: radial-gradient(circle, #b8cce0 1px, transparent 1px);
-  background-size: 30px 30px;
+  background-image: none;
+  background-color: var(--bg-page);
 }
 
-/* 2. Hero gradient at top of main content card */
 .page {
-  background:
-    linear-gradient(168deg, rgba(219,234,254,0.6) 0%, rgba(255,255,255,0) 280px),
-    var(--surface);
+  background: var(--surface);
 }
 
 /* 3. Gradient text for section headings */

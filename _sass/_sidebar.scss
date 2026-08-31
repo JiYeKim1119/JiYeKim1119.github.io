@@ -7,14 +7,21 @@
    ========================================================================== */
 
 .sidebar {
-  -webkit-transform: translate3d(0, 0 , 0);
-          transform: translate3d(0, 0 , 0);
+  -webkit-transform: translate3d(0, 0, 0);
+          transform: translate3d(0, 0, 0);
 
   @include clearfix();
   margin-bottom: 1em;
 
   @include breakpoint($large) {
     @include span(4 of 12);
+
+    position: sticky;
+    top: 80px;
+
+    align-self: flex-start;
+    height: fit-content;
+
     opacity: 1;
     -webkit-transition: opacity 0.2s ease-in-out;
             transition: opacity 0.2s ease-in-out;
@@ -49,6 +56,10 @@
 }
 
 
+/* ==========================================================================
+   RIGHT SIDEBAR
+   ========================================================================== */
+
 .sidebar__right {
   margin-bottom: 1em;
 
@@ -66,8 +77,8 @@
 }
 
 
-/*
-   Author profile and links
+/* ==========================================================================
+   AUTHOR PROFILE
    ========================================================================== */
 
 .profile_box {
@@ -99,13 +110,17 @@
     border-radius: 50%;
 
     @include breakpoint($large) {
+      display: block;
+
       width: 100%;
       max-width: 320px;
-      padding: 5px;
-      border: 1px solid $border-color;
-      display: block;
+      height: auto;
+
       margin-left: auto;
       margin-right: auto;
+
+      padding: 5px;
+      border: 1px solid $border-color;
     }
   }
 }
@@ -121,6 +136,7 @@
   @include breakpoint($large) {
     display: block;
     width: 100%;
+
     padding-left: 0;
     padding-right: 0;
   }
@@ -157,13 +173,20 @@
 }
 
 
+/* ==========================================================================
+   AUTHOR LINKS
+   ========================================================================== */
+
 .author__urls-wrapper {
   position: relative;
   display: table-cell;
   vertical-align: middle;
+
   font-family: $sans-serif;
+
   z-index: 10;
   margin-left: auto;
+
   cursor: pointer;
 
   li:last-child {
@@ -193,37 +216,54 @@
   display: none;
   position: absolute;
   right: 0;
+
   margin-top: 15px;
   padding: 10px;
+
   list-style-type: none;
+
   border: 1px solid $border-color;
   border-radius: $border-radius;
+
   background: #fff;
+
   z-index: -1;
+
   box-shadow: 0 0 10px rgba(#000, 0.25);
+
   cursor: default;
 
   @include breakpoint($large) {
     display: block;
+
     position: relative;
     right: auto;
+
     margin: 0;
     padding: 0;
+
     border: 0;
+
     background: transparent;
+
     box-shadow: none;
   }
 
   &:before {
     display: block;
     content: "";
+
     position: absolute;
+
     top: -11px;
     left: calc(50% - 10px);
+
     width: 0;
+
     border-style: solid;
     border-width: 0 10px 10px;
     border-color: $border-color transparent;
+
     z-index: 0;
 
     @include breakpoint($large) {
@@ -234,13 +274,18 @@
   &:after {
     display: block;
     content: "";
+
     position: absolute;
+
     top: -10px;
     left: calc(50% - 10px);
+
     width: 0;
+
     border-style: solid;
     border-width: 0 10px 10px;
     border-color: #fff transparent;
+
     z-index: 1;
 
     @include breakpoint($large) {
@@ -254,12 +299,17 @@
 
   a {
     display: block;
+
     margin-bottom: 5px;
+
     padding-right: 5px;
     padding-top: 2px;
     padding-bottom: 2px;
+
     color: inherit;
+
     font-size: $type-size-5;
+
     text-decoration: none;
 
     &:hover {
@@ -270,12 +320,15 @@
 
 
 .author__urls_sm {
-  padding: .25em;
+  padding: 0.25em;
+
   font-size: 1.75em;
+
   display: block;
 
   a {
     color: inherit;
+
     text-decoration: none;
 
     &:hover {

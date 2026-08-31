@@ -742,7 +742,76 @@
     content: " ↗";
     font-size: 0.9em;
 }
+
+  /* MOBILE SECTION ACCORDION
+   Desktop stays unchanged */
+
+.mobile-section-panel {
+  display: block;
+}
+
+.mobile-section-toggle {
+  display: none;
+}
+
+@media (max-width: 620px) {
+
+  main section {
+    margin-top: 0 !important;
+    padding-top: 0 !important;
+  }
+
+  main section + section {
+    margin-top: 0.65rem !important;
+  }
+
+  .section-heading {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    margin: 0;
+    padding: 0.85rem 0.65rem;
+
+    cursor: pointer;
+    user-select: none;
+
+    border-left: 4px solid var(--accent-2);
+    border-bottom: 1px solid rgba(156, 44, 70, 0.22);
+  }
+
+  .section-heading::after {
+    display: none;
+  }
+
+  .mobile-section-toggle {
+    display: inline-block;
+    margin-left: 1rem;
+
+    color: var(--accent-2);
+    font-size: 1.25rem;
+    font-weight: 500;
+    line-height: 1;
+  }
+
+  /* 기본: 내용 접힘 */
+  .mobile-section-panel {
+    display: none;
+    padding-top: 0.8rem;
+  }
+
+  /* 열린 section */
+  section.mobile-open > .mobile-section-panel {
+    display: block;
+  }
+
+  .section-heading:hover {
+    background: rgba(156, 44, 70, 0.04);
+  }
+}
   </style>
+
+  
 </head>
 <body>
   <a class="skip-link" href="#content">Skip to main content</a>
@@ -1152,6 +1221,76 @@
 
     sections.forEach((section) => observer.observe(section));
     document.getElementById('current-year').textContent = new Date().getFullYear();
+
+    /* =========================================================
+   Mobile section accordion
+   ========================================================= */
+
+    const mobileAccordion = window.matchMedia('(max-width: 620px)');
+
+    document.querySelectorAll('main section').forEach((section, index) => {
+      const heading = section.querySelector(':scope > .section-heading');
+
+      if (!heading) return;
+
+  /* Put everything after the heading inside one collapsible panel */
+      const panel = document.createElement('div');
+      panel.className = 'mobile-section-panel';
+
+      let next = heading.nextSibling;
+
+      while (next) {
+        const current = next;
+        next = next.nextSibling;
+        panel.appendChild(current);
+      }
+
+      section.appendChild(panel);
+
+  /* + / − indicator */
+      const toggleIcon = document.createElement('span');
+      toggleIcon.className = 'mobile-section-toggle';
+      toggleIcon.setAttribute('aria-hidden', 'true');
+      toggleIcon.textContent = index === 0 ? '−' : '+';
+
+      heading.appendChild(toggleIcon);
+
+      heading.setAttribute('role', 'button');
+      heading.setAttribute('tabindex', '0');
+
+  /* About Me open by default, others closed */
+      if (index === 0) {
+        section.classList.add('mobile-open');
+        heading.setAttribute('aria-expanded', 'true');
+      } else {
+        heading.setAttribute('aria-expanded', 'false');
+      }
+
+      const toggleSection = () => {
+        if (!mobileAccordion.matches) return;
+
+        const isOpen = section.classList.toggle('mobile-open');
+
+        heading.setAttribute(
+          'aria-expanded',
+          isOpen ? 'true' : 'false'
+        );
+
+        toggleIcon.textContent = isOpen ? '−' : '+';
+      };
+
+      heading.addEventListener('click', toggleSection);
+
+      heading.addEventListener('keydown', (event) => {
+        if (
+          mobileAccordion.matches &&
+          (event.key === 'Enter' || event.key === ' ')
+        ) {
+          event.preventDefault();
+          toggleSection();
+        }
+      });
+    });
   </script>
 </body>
 </html>

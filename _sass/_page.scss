@@ -15,6 +15,12 @@
     gap: 2rem;
   }
 
+  @include breakpoint($x-large) {
+    max-width: $x-large;
+  }
+}
+
+
 .page {
   @include breakpoint($large) {
     float: none;

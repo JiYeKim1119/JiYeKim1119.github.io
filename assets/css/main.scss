@@ -1,15 +1,3 @@
----
----
-
-/*
- *    Minimal Mistakes Jekyll Theme
- *
- *  - Michael Rose
- *  - mademistakes.com
- *  - https://twitter.com/mmistakes
- *
-*/
-
 @import "vendor/breakpoint/breakpoint"; // media query mixins
 @import "variables";
 @import "mixins";
@@ -947,4 +935,339 @@ html, body {
     top: 80px;
     align-self: flex-start;
   }
+}
+
+/* ================================================================
+   FINAL CUSTOM THEME
+   Soft Gray Gradient + Wine Accent
+   ================================================================ */
+
+
+/* ------------------------------------------------
+   1. FINAL COLOR PALETTE
+   ------------------------------------------------ */
+
+:root {
+  --accent-1: #5f1d2f;
+  --accent-2: #7a263a;
+  --accent-sky: #a35a6c;
+  --accent-light: #f2e7ea;
+
+  --grad-accent: linear-gradient(
+    135deg,
+    #5f1d2f 0%,
+    #7a263a 55%,
+    #a35a6c 100%
+  );
+
+  --grad-progress: linear-gradient(
+    to right,
+    #5f1d2f,
+    #7a263a,
+    #a35a6c
+  );
+
+  --surface: #ffffff;
+  --bg-page: #f1f1f1;
+
+  --text-primary: #333333;
+  --text-muted: #707070;
+  --border: #dedede;
+
+  --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.05);
+  --shadow-md: 0 6px 20px rgba(0, 0, 0, 0.08);
+}
+
+
+/* ------------------------------------------------
+   2. PAGE BACKGROUND
+   visible soft-gray gradient
+   ------------------------------------------------ */
+
+html,
+body {
+  background:
+    linear-gradient(
+      135deg,
+      #e9e9e9 0%,
+      #f5f5f5 45%,
+      #eeeeee 100%
+    ) !important;
+
+  background-attachment: fixed !important;
+}
+
+
+/* ------------------------------------------------
+   3. MAIN CONTENT CARD
+   light gray/white gradient instead of flat white
+   ------------------------------------------------ */
+
+.page {
+  background:
+    linear-gradient(
+      145deg,
+      #ffffff 0%,
+      #fafafa 45%,
+      #f1f1f1 100%
+    ) !important;
+
+  border: 1px solid #e2e2e2;
+  box-shadow:
+    0 6px 24px rgba(0, 0, 0, 0.06) !important;
+}
+
+
+/* ------------------------------------------------
+   4. SIDEBAR
+   gray gradient card + sticky on desktop
+   ------------------------------------------------ */
+
+@media (min-width: 925px) {
+
+  .sidebar {
+    position: sticky !important;
+    top: 80px;
+    align-self: flex-start;
+    height: fit-content;
+
+    background:
+      linear-gradient(
+        145deg,
+        rgba(255, 255, 255, 0.97) 0%,
+        rgba(244, 244, 244, 0.95) 100%
+      ) !important;
+
+    border: 1px solid #e0e0e0 !important;
+    border-radius: 16px;
+
+    box-shadow:
+      0 6px 24px rgba(0, 0, 0, 0.06) !important;
+  }
+
+  .sidebar::before {
+    background:
+      linear-gradient(
+        to right,
+        #5f1d2f,
+        #7a263a,
+        #a35a6c
+      ) !important;
+  }
+}
+
+
+/* ------------------------------------------------
+   5. SECTION HEADINGS
+   wine gradient text
+   ------------------------------------------------ */
+
+.page__content h1 {
+  color: #7a263a !important;
+
+  background:
+    linear-gradient(
+      110deg,
+      #531827 0%,
+      #7a263a 55%,
+      #9a4c60 100%
+    ) !important;
+
+  -webkit-background-clip: text !important;
+  background-clip: text !important;
+
+  -webkit-text-fill-color: transparent !important;
+
+  border-left-color: #7a263a !important;
+}
+
+
+/* ------------------------------------------------
+   6. HEADING UNDERLINE
+   remove remaining blue
+   ------------------------------------------------ */
+
+.page__content h1::after {
+  background:
+    linear-gradient(
+      to right,
+      #7a263a 0%,
+      #b9808e 35%,
+      #dfc7cd 65%,
+      transparent 100%
+    ) !important;
+}
+
+
+/* ------------------------------------------------
+   7. LINKS
+   ------------------------------------------------ */
+
+.page__content a {
+  color: #7a263a !important;
+}
+
+.page__content a:hover {
+  color: #531827 !important;
+  border-bottom-color: #b9808e !important;
+}
+
+.page__content a:not([class]) {
+  background-image:
+    linear-gradient(
+      90deg,
+      #7a263a,
+      #a35a6c
+    ) !important;
+}
+
+
+/* ------------------------------------------------
+   8. PROFILE PHOTO ACCENT
+   ------------------------------------------------ */
+
+.author__avatar img {
+  border-color: #ead9de !important;
+
+  box-shadow:
+    0 0 0 2px #7a263a,
+    0 5px 18px rgba(0, 0, 0, 0.10) !important;
+}
+
+.author__avatar img:hover {
+  box-shadow:
+    0 0 0 3px #5f1d2f,
+    0 7px 22px rgba(0, 0, 0, 0.12) !important;
+}
+
+
+/* ------------------------------------------------
+   9. PAPER / PUBLICATION CARDS
+   remove blue borders and glow
+   ------------------------------------------------ */
+
+.paper-box {
+  border-color: #dedede !important;
+}
+
+.paper-box:hover {
+  border-color: #d3adb7 !important;
+
+  box-shadow:
+    0 8px 24px rgba(0, 0, 0, 0.08),
+    inset 4px 0 0 #7a263a !important;
+}
+
+@keyframes glowPulse {
+  0%,
+  100% {
+    box-shadow:
+      0 8px 24px rgba(0, 0, 0, 0.08),
+      inset 4px 0 0 #7a263a;
+  }
+
+  50% {
+    box-shadow:
+      0 8px 24px rgba(0, 0, 0, 0.08),
+      inset 4px 0 0 #7a263a,
+      0 0 20px 4px rgba(122, 38, 58, 0.12);
+  }
+}
+
+
+/* ------------------------------------------------
+   10. HORIZONTAL RULES
+   ------------------------------------------------ */
+
+hr {
+  background:
+    linear-gradient(
+      to right,
+      #c79aa5,
+      #dedede,
+      transparent
+    ) !important;
+}
+
+
+/* ------------------------------------------------
+   11. BADGES
+   remove blue shadow
+   ------------------------------------------------ */
+
+.badge {
+  box-shadow:
+    0 2px 8px rgba(122, 38, 58, 0.28) !important;
+}
+
+
+/* ------------------------------------------------
+   12. BACK TO TOP BUTTON
+   ------------------------------------------------ */
+
+#back-to-top {
+  background:
+    linear-gradient(
+      135deg,
+      #5f1d2f,
+      #7a263a
+    ) !important;
+
+  box-shadow:
+    0 4px 14px rgba(122, 38, 58, 0.28) !important;
+}
+
+#back-to-top:hover {
+  box-shadow:
+    0 8px 24px rgba(122, 38, 58, 0.38) !important;
+}
+
+
+/* ------------------------------------------------
+   13. NAVIGATION
+   ------------------------------------------------ */
+
+.masthead {
+  background:
+    rgba(250, 250, 250, 0.94) !important;
+
+  border-bottom-color: #dedede !important;
+}
+
+.masthead__menu-item a:hover,
+.masthead__menu-item a.nav-active {
+  color: #7a263a !important;
+  background: #f2e7ea !important;
+}
+
+
+/* ------------------------------------------------
+   14. FOOTER
+   neutral dark gray instead of blue-gray
+   ------------------------------------------------ */
+
+.page__footer {
+  background: #333333 !important;
+}
+
+.page__footer footer {
+  color: #bdbdbd !important;
+}
+
+.page__footer footer a {
+  color: #d8aab5 !important;
+}
+
+.page__footer footer a:hover {
+  color: #ffffff !important;
+}
+
+
+/* ------------------------------------------------
+   15. REMOVE FLOATING ORBS COMPLETELY
+   ------------------------------------------------ */
+
+#bg-orbs,
+.bg-orb {
+  display: none !important;
 }

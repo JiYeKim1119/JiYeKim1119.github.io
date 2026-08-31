@@ -1,0 +1,1139 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Ji Ye Kim is a Ph.D. candidate in Communication at USC studying social interaction, online games, media psychology, social networks, and computational methods.">
+  <meta name="theme-color" content="#7a263a">
+  <title>Ji Ye Kim | Communication Researcher</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --accent-1: #5f1d2f;
+      --accent-2: #7a263a;
+      --accent-3: #a45a6d;
+      --accent-light: #f2e7ea;
+      --surface: rgba(255, 255, 255, 0.95);
+      --surface-soft: rgba(250, 250, 250, 0.92);
+      --text-primary: #333333;
+      --text-muted: #707070;
+      --border: #dedede;
+      --border-soft: #e9e9e9;
+      --shadow-sm: 0 1px 4px rgba(0, 0, 0, 0.07);
+      --shadow-md: 0 5px 20px rgba(0, 0, 0, 0.08);
+      --radius: 10px;
+      --radius-sm: 6px;
+      --nav-height: 58px;
+      --content-width: 1480px;
+      --ease: cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      min-height: 100%;
+      font-size: 15px;
+      scroll-behavior: smooth;
+      scroll-padding-top: calc(var(--nav-height) + 18px);
+    }
+
+    body {
+      min-height: 100vh;
+      margin: 0;
+      color: var(--text-primary);
+      font-family: 'Inter', 'Trebuchet MS', Helvetica, sans-serif;
+      line-height: 1.5;
+      background:
+        linear-gradient(
+          135deg,
+          #e9e9e9 0%,
+          #f6f6f6 46%,
+          #eeeeee 100%
+        );
+      background-attachment: fixed;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    a {
+      color: var(--accent-2);
+      text-decoration: none;
+    }
+
+    a:hover {
+      color: var(--accent-1);
+      text-decoration: underline;
+      text-underline-offset: 3px;
+    }
+
+    .skip-link {
+      position: fixed;
+      top: -80px;
+      left: 12px;
+      z-index: 1000;
+      padding: 0.65rem 0.9rem;
+      color: #ffffff;
+      background: var(--accent-1);
+      border-radius: var(--radius-sm);
+      transition: top 0.2s ease;
+    }
+
+    .skip-link:focus {
+      top: 10px;
+    }
+
+    .masthead {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      min-height: var(--nav-height);
+      background: rgba(255, 255, 255, 0.94);
+      -webkit-backdrop-filter: blur(12px);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+      box-shadow: 0 1px 8px rgba(0, 0, 0, 0.06);
+    }
+
+    .masthead__inner {
+      width: min(var(--content-width), calc(100% - 2rem));
+      min-height: var(--nav-height);
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1.2rem;
+    }
+
+    .site-title {
+      flex: 0 0 auto;
+      white-space: nowrap;
+      color: var(--text-primary);
+      font-size: 1.05rem;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      text-decoration: none;
+    }
+
+    .site-title:hover {
+      color: var(--accent-1);
+      text-decoration: none;
+    }
+
+    .nav-toggle {
+      display: none;
+      padding: 0.42rem 0.65rem;
+      color: var(--text-primary);
+      font: inherit;
+      font-size: 0.86rem;
+      background: #ffffff;
+      border: 1px solid var(--border);
+      border-radius: var(--radius-sm);
+      cursor: pointer;
+    }
+
+    .masthead__menu {
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      flex-wrap: nowrap;
+      gap: 0.05rem;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .masthead__menu a {
+      display: block;
+      padding: 0.3em 0.55em;
+      color: var(--text-muted);
+      font-size: 0.9rem;
+      font-weight: 500;
+      letter-spacing: 0.01em;
+      border-radius: var(--radius-sm);
+      white-space: nowrap;
+      transition: color 0.2s var(--ease), background 0.2s var(--ease);
+    }
+
+    .masthead__menu a:hover,
+    .masthead__menu a.active {
+      color: var(--accent-1);
+      background: var(--accent-light);
+      text-decoration: none;
+    }
+
+    #main {
+      width: min(var(--content-width), calc(100% - 2rem));
+      margin: 1.5rem auto 4rem;
+      display: grid;
+      grid-template-columns: minmax(290px, 1fr) minmax(0, 2fr);
+      gap: 2rem;
+      align-items: start;
+    }
+
+    .sidebar {
+      position: sticky;
+      top: calc(var(--nav-height) + 1.2rem);
+      min-width: 0;
+      height: fit-content;
+      padding: 1.5em 1.2em;
+      background:
+        linear-gradient(
+          145deg,
+          rgba(255, 255, 255, 0.97) 0%,
+          rgba(244, 244, 244, 0.94) 100%
+        );
+      border: 1px solid rgba(255, 255, 255, 0.9);
+      border-radius: 16px;
+      box-shadow: var(--shadow-md);
+    }
+
+    .sidebar::before {
+      content: '';
+      display: block;
+      height: 3px;
+      margin-bottom: 1.4em;
+      background: linear-gradient(to right, var(--accent-1), var(--accent-3));
+      border-radius: 3px;
+    }
+
+    .author__avatar {
+      position: relative;
+      width: min(78%, 265px);
+      aspect-ratio: 1 / 1;
+      margin: 0 auto;
+      overflow: hidden;
+      border-radius: 50%;
+      background: linear-gradient(145deg, #eee8ea, #d8ced1);
+      border: 3px solid var(--accent-light);
+      box-shadow: 0 0 0 2px var(--accent-2), var(--shadow-md);
+    }
+
+    .author__avatar::before {
+      content: 'JK';
+      position: absolute;
+      inset: 0;
+      display: grid;
+      place-items: center;
+      color: var(--accent-2);
+      font-size: 4rem;
+      font-weight: 700;
+      letter-spacing: -0.07em;
+    }
+
+    .author__avatar img {
+      position: relative;
+      z-index: 1;
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center 22%;
+    }
+
+    .author__content {
+      margin-top: 1.25rem;
+    }
+
+    .author__name {
+      margin: 0;
+      color: var(--text-primary);
+      font-size: 1.4em;
+      font-weight: 700;
+      line-height: 1.2;
+      letter-spacing: -0.025em;
+    }
+
+    .author__role {
+      margin: 0.55rem 0 0;
+      color: var(--accent-2);
+      font-size: 1em;
+      font-weight: 600;
+      line-height: 1.45;
+    }
+
+    .author__affiliation {
+      margin: 0.25rem 0 0;
+      color: var(--text-muted);
+      font-size: 0.93rem;
+    }
+
+    .author__bio {
+      margin: 1rem 0 0;
+      color: var(--text-muted);
+      font-size: 0.84rem;
+      font-style: italic;
+      line-height: 1.55;
+    }
+
+    .author__urls {
+      margin: 1.25rem 0 0;
+      padding: 1rem 0 0;
+      list-style: none;
+      border-top: 1px solid var(--border);
+    }
+
+    .author__urls li {
+      margin-bottom: 0.15rem;
+    }
+
+    .author__urls a,
+    .author__urls span {
+      display: flex;
+      align-items: baseline;
+      width: 100%;
+      padding: 0.32rem 0.45rem;
+      color: var(--text-muted);
+      font-size: 0.93rem;
+      border-radius: var(--radius-sm);
+    }
+
+    .author__urls a:hover {
+      color: var(--accent-1);
+      background: var(--accent-light);
+      text-decoration: none;
+    }
+
+    .url-label {
+      flex: 0 0 5.1rem;
+      color: var(--text-muted);
+      font-size: 0.78rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+    }
+
+    .url-value {
+      min-width: 0;
+      overflow-wrap: anywhere;
+    }
+
+    .page {
+      min-width: 0;
+      padding: 1.5em 2em 2.2em;
+      background:
+        linear-gradient(
+          145deg,
+          rgba(255, 255, 255, 0.98) 0%,
+          rgba(250, 250, 250, 0.96) 58%,
+          rgba(242, 242, 242, 0.94) 100%
+        );
+      border: 1px solid var(--border-soft);
+      border-radius: 12px;
+      box-shadow: var(--shadow-sm);
+    }
+
+    section {
+      scroll-margin-top: calc(var(--nav-height) + 1.2rem);
+    }
+
+    section + section {
+      margin-top: 2.35rem;
+      padding-top: 0.2rem;
+    }
+
+    h1,
+    h2,
+    h3,
+    h4 {
+      font-family: 'Inter', 'Trebuchet MS', Helvetica, sans-serif;
+      line-height: 1.2;
+      font-weight: 700;
+    }
+
+    .section-heading {
+      margin: 1em 0 0.9em;
+      padding-left: 1rem;
+      color: var(--accent-1);
+      font-size: 1.4em;
+      letter-spacing: -0.025em;
+      border-left: 4px solid var(--accent-2);
+    }
+
+    .section-heading::after {
+      content: '';
+      display: block;
+      height: 2px;
+      margin-top: 0.4em;
+      background: linear-gradient(to right, var(--accent-2), #caa0ab, transparent);
+      border-radius: 1px;
+    }
+
+    .subheading {
+      margin: 1.55rem 0 0.65rem;
+      color: var(--text-primary);
+      font-size: 1.2em;
+      letter-spacing: -0.015em;
+    }
+
+    .entry-title {
+      margin: 0;
+      color: var(--text-primary);
+      font-size: 1em;
+      line-height: 1.45;
+    }
+
+    p {
+      margin: 0 0 0.65em;
+    }
+
+    .lead {
+      max-width: 900px;
+      color: var(--text-primary);
+      font-size: 1em;
+      line-height: 1.65;
+    }
+
+    .muted {
+      color: var(--text-muted);
+    }
+
+    .research-areas {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.45rem;
+      margin: 1.05rem 0 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .research-areas li {
+      padding: 0.25rem 0.65rem;
+      color: var(--accent-1);
+      background: var(--accent-light);
+      border: 1px solid #e4cfd5;
+      border-radius: 999px;
+      font-size: 0.82rem;
+      font-weight: 500;
+    }
+
+    .info-panel {
+      margin-top: 1.2rem;
+      padding: 1rem 1.1rem;
+      background: rgba(255, 255, 255, 0.66);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+    }
+
+    .info-panel p:last-child {
+      margin-bottom: 0;
+    }
+
+    .entry-list {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .entry {
+      display: grid;
+      grid-template-columns: minmax(95px, 125px) minmax(0, 1fr);
+      gap: 1.1rem;
+      padding: 1rem 0;
+      border-bottom: 1px solid var(--border-soft);
+    }
+
+    .entry:last-child {
+      border-bottom: 0;
+    }
+
+    .entry-date {
+      color: var(--accent-2);
+      font-size: 0.82rem;
+      font-weight: 600;
+      line-height: 1.45;
+    }
+
+    .entry-body p {
+      margin: 0.3rem 0 0;
+      color: var(--text-muted);
+      font-size: 0.93rem;
+    }
+
+    .entry-body ul {
+      margin: 0.45rem 0 0;
+      padding-left: 1.2rem;
+      color: var(--text-muted);
+      font-size: 0.93rem;
+    }
+
+    .entry-body li {
+      margin-bottom: 0.3rem;
+    }
+
+    .publication-list {
+      display: grid;
+      gap: 0.8rem;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .publication {
+      position: relative;
+      padding: 1rem 1.1rem 1rem 1.3rem;
+      background: rgba(255, 255, 255, 0.72);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow-sm), inset 4px 0 0 var(--accent-2);
+    }
+
+    .publication-status {
+      display: inline-flex;
+      width: fit-content;
+      margin-bottom: 0.45rem;
+      padding: 0.16rem 0.55rem;
+      color: var(--accent-1);
+      background: var(--accent-light);
+      border: 1px solid #dfc6cd;
+      border-radius: 999px;
+      font-size: 0.72rem;
+      font-weight: 600;
+    }
+
+    .publication-title {
+      margin: 0;
+      color: var(--text-primary);
+      font-size: 1em;
+      line-height: 1.45;
+    }
+
+    .publication-authors,
+    .publication-venue {
+      margin: 0.35rem 0 0;
+      color: var(--text-muted);
+      font-size: 0.91rem;
+    }
+
+    .publication-venue {
+      color: var(--accent-2);
+    }
+
+    .presentation-list {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .presentation {
+      padding: 0.85rem 0;
+      border-bottom: 1px solid var(--border-soft);
+    }
+
+    .presentation:last-child {
+      border-bottom: 0;
+    }
+
+    .presentation-title {
+      margin: 0;
+      color: var(--text-primary);
+      font-size: 1em;
+      line-height: 1.45;
+    }
+
+    .presentation-meta {
+      margin: 0.3rem 0 0;
+      color: var(--text-muted);
+      font-size: 0.9rem;
+    }
+
+    .two-column {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 1rem;
+    }
+
+    .subcard {
+      padding: 1rem 1.05rem;
+      background: rgba(255, 255, 255, 0.68);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+    }
+
+    .subcard .subheading {
+      margin-top: 0;
+    }
+
+    .compact-list {
+      margin: 0;
+      padding-left: 1.15rem;
+      color: var(--text-muted);
+      font-size: 0.93rem;
+    }
+
+    .compact-list li {
+      margin-bottom: 0.45rem;
+    }
+
+    .site-footer {
+      width: min(var(--content-width), calc(100% - 2rem));
+      margin: -2.5rem auto 2rem;
+      padding-left: calc(33.333% + 1.35rem);
+      color: var(--text-muted);
+      font-size: 0.78rem;
+    }
+
+    @media (max-width: 1180px) {
+      .masthead__menu a {
+        padding-inline: 0.45em;
+        font-size: 0.86rem;
+      }
+
+      #main {
+        gap: 1.25rem;
+      }
+    }
+
+    @media (max-width: 940px) {
+      .masthead__inner {
+        position: relative;
+      }
+
+      .nav-toggle {
+        display: inline-block;
+      }
+
+      .masthead__menu {
+        display: none;
+        position: absolute;
+        top: calc(100% + 0.5rem);
+        right: 0;
+        left: 0;
+        align-items: stretch;
+        padding: 0.6rem;
+        background: rgba(255, 255, 255, 0.98);
+        border: 1px solid var(--border);
+        border-radius: var(--radius);
+        box-shadow: var(--shadow-md);
+      }
+
+      .masthead__menu.open {
+        display: flex;
+        flex-direction: column;
+      }
+
+      .masthead__menu a {
+        padding: 0.65rem 0.75rem;
+      }
+
+      #main {
+        grid-template-columns: 1fr;
+        width: min(760px, calc(100% - 1.25rem));
+        margin-top: 1rem;
+      }
+
+      .sidebar {
+        position: static;
+        display: grid;
+        grid-template-columns: 155px minmax(0, 1fr);
+        gap: 1.25rem;
+        align-items: center;
+      }
+
+      .sidebar::before {
+        position: absolute;
+        top: 0;
+        left: 1.2rem;
+        right: 1.2rem;
+      }
+
+      .author__avatar {
+        width: 145px;
+        margin: 0;
+      }
+
+      .author__content {
+        margin-top: 0;
+      }
+
+      .page {
+        padding: 1.25em 1.35em 2em;
+      }
+
+      .site-footer {
+        width: min(760px, calc(100% - 1.25rem));
+        padding-left: 0;
+      }
+    }
+
+    @media (max-width: 620px) {
+      .masthead__inner {
+        width: calc(100% - 1rem);
+      }
+
+      #main {
+        width: calc(100% - 1rem);
+      }
+
+      .sidebar {
+        display: block;
+        padding: 1.3em 1em;
+        text-align: center;
+      }
+
+      .author__avatar {
+        width: 118px;
+        margin: 0 auto;
+      }
+
+      .author__avatar::before {
+        font-size: 2.8rem;
+      }
+
+      .author__content {
+        margin-top: 1rem;
+      }
+
+      .author__urls {
+        text-align: left;
+      }
+
+      .page {
+        padding: 1em 0.95em 1.6em;
+      }
+
+      .entry {
+        grid-template-columns: 1fr;
+        gap: 0.25rem;
+      }
+
+      .two-column {
+        grid-template-columns: 1fr;
+      }
+
+      .section-heading {
+        padding-left: 0.65rem;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *,
+      *::before,
+      *::after {
+        scroll-behavior: auto !important;
+        transition-duration: 0.01ms !important;
+      }
+    }
+  </style>
+</head>
+<body>
+  <a class="skip-link" href="#content">Skip to main content</a>
+
+  <header class="masthead">
+    <div class="masthead__inner">
+      <a class="site-title" href="#about">Ji Ye Kim</a>
+      <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-menu">Menu</button>
+      <ul class="masthead__menu" id="site-menu">
+        <li><a href="#about">About Me</a></li>
+        <li><a href="#education">Education</a></li>
+        <li><a href="#publications">Publications</a></li>
+        <li><a href="#research-experience">Research</a></li>
+        <li><a href="#presentations">Presentations</a></li>
+        <li><a href="#awards">Awards</a></li>
+        <li><a href="#teaching-service">Teaching &amp; Service</a></li>
+        <li><a href="./files/JiYeKim_CV_2026.pdf" target="_blank" rel="noopener">CV</a></li>
+      </ul>
+    </div>
+  </header>
+
+  <div id="main">
+    <aside class="sidebar" aria-label="Profile">
+      <div class="author__avatar">
+        <img src="./images/avatar.jpg" alt="Portrait of Ji Ye Kim" onerror="this.remove()">
+      </div>
+
+      <div class="author__content">
+        <h2 class="author__name">Ji Ye Kim</h2>
+        <p class="author__role">Ph.D. Candidate in Communication</p>
+        <p class="author__affiliation">University of Southern California</p>
+        <p class="author__bio">Game studies, media psychology, social network analysis, computational methods, and natural language processing.</p>
+
+        <ul class="author__urls">
+          <li><span><span class="url-label">Location</span><span class="url-value">Los Angeles, CA</span></span></li>
+          <li><a href="mailto:jiyek@usc.edu"><span class="url-label">Email</span><span class="url-value">jiyek@usc.edu</span></a></li>
+          <li><a href="https://github.com/JiYeKim1119" target="_blank" rel="noopener"><span class="url-label">GitHub</span><span class="url-value">JiYeKim1119</span></a></li>
+          <li><a href="./files/JiYeKim_CV_2026.pdf" target="_blank" rel="noopener"><span class="url-label">CV</span><span class="url-value">View PDF</span></a></li>
+        </ul>
+      </div>
+    </aside>
+
+    <main class="page" id="content">
+      <section id="about">
+        <h1 class="section-heading">About Me</h1>
+        <p class="lead">
+          I am a Ph.D. candidate in Communication at the University of Southern California. My research examines toxic and prosocial play in online multiplayer games as multidimensional social behaviors, with a focus on relationship selection and social influence.
+        </p>
+        <p class="lead">
+          I use surveys, network and behavioral data, social network analysis, machine learning, and computational text analysis to study communication processes in online game environments.
+        </p>
+
+        <ul class="research-areas" aria-label="Research areas">
+          <li>Game Studies</li>
+          <li>Media Psychology</li>
+          <li>Social Network Analysis</li>
+          <li>Computational Methods</li>
+          <li>Natural Language Processing</li>
+        </ul>
+
+        <div class="info-panel">
+          <p><strong>Dissertation:</strong> <em>Toxic and Prosocial Gameplay in Online Games: Relationship Selection and Socially Driven Behavior</em></p>
+          <p class="muted">Adviser: Dmitri Williams. Committee: Dmitri Williams (Chair), Aimei Yang, and Lindsay Young.</p>
+        </div>
+      </section>
+
+      <section id="education">
+        <h1 class="section-heading">Education</h1>
+        <ul class="entry-list">
+          <li class="entry">
+            <div class="entry-date">Aug 2023–Present</div>
+            <div class="entry-body">
+              <h2 class="entry-title">Ph.D. in Communication (ABD)</h2>
+              <p><strong>University of Southern California</strong>, Los Angeles, California</p>
+              <p>Adviser: Dmitri Williams</p>
+              <p>Dissertation: <em>Toxic and Prosocial Gameplay in Online Games: Relationship Selection and Socially Driven Behavior</em></p>
+            </div>
+          </li>
+
+          <li class="entry">
+            <div class="entry-date">Aug 2021–May 2023</div>
+            <div class="entry-body">
+              <h2 class="entry-title">M.A. in Media and Communication, Theory and Research Track</h2>
+              <p><strong>University of North Carolina at Chapel Hill</strong>, Chapel Hill, North Carolina</p>
+              <p>Adviser: Francesca Dillman Carpentier</p>
+              <p>Thesis: <em>Do Users Reveal the Needs that Motivate Them to Watch Gaming Videos? A Computational Analysis of Gaming Video User Comments on YouTube</em></p>
+            </div>
+          </li>
+
+          <li class="entry">
+            <div class="entry-date">Mar 2016–Feb 2021</div>
+            <div class="entry-body">
+              <h2 class="entry-title">B.S. in Content Convergence (Primary Major) and B.C.M. in Communication and Media (Second Major)</h2>
+              <p><strong>Ewha Womans University</strong>, Seoul, South Korea</p>
+              <p>Summa cum laude. Cumulative GPA: 3.93 / 4.00.</p>
+              <ul>
+                <li>Content Convergence thesis: <em>Does the viewer’s gender of YouTube “Eating Show” correlate with the viewer’s watching motivation, preference, and the creator’s gender?</em></li>
+                <li>Communication and Media thesis: <em>Algorithm Design for Augmented Reality Applications to Digital Advertisements</em></li>
+              </ul>
+            </div>
+          </li>
+        </ul>
+      </section>
+
+      <section id="publications">
+        <h1 class="section-heading">Publications</h1>
+
+        <h2 class="subheading">Peer-Reviewed Journal Articles</h2>
+        <ol class="publication-list">
+          <li class="publication">
+            <span class="publication-status">In Press</span>
+            <h3 class="publication-title">Different gameplay styles, different psychological needs: Extending relatedness through behavioral indicators</h3>
+            <p class="publication-authors"><strong>Kim, J. Y.</strong>, Kim, D., Zhou, S., Wang, Z., Williams, D., &amp; Yang, A.</p>
+            <p class="publication-venue"><em>Journal of Media Psychology</em>.</p>
+          </li>
+
+          <li class="publication">
+            <span class="publication-status">2026</span>
+            <h3 class="publication-title"><a href="https://doi.org/10.1016/j.entcom.2026.101171" target="_blank" rel="noopener">No player is an island: Belonging, identity and skill in online game teams</a></h3>
+            <p class="publication-authors"><strong>Kim, J. Y.</strong>, &amp; Williams, D.</p>
+            <p class="publication-venue"><em>Entertainment Computing, 58</em>, 101171.</p>
+          </li>
+
+          <li class="publication">
+            <span class="publication-status">2026</span>
+            <h3 class="publication-title"><a href="https://doi.org/10.5117/CCR2026.3.3.WANG" target="_blank" rel="noopener">Protest images and interaction networks within affective publics during the 2024 South Korean martial law crisis</a></h3>
+            <p class="publication-authors">Wang, Z., Zhou, S., Wang, J., Zhu, J., Kim, D., Jung, B., <strong>Kim, J. Y.</strong>, Balasubramanian, A., Zou, V., &amp; Young, L. E.</p>
+            <p class="publication-venue"><em>Computational Communication Research, 8</em>(3), 1–24.</p>
+          </li>
+        </ol>
+
+        <h2 class="subheading">Peer-Reviewed Manuscripts Under Review</h2>
+        <ol class="publication-list">
+          <li class="publication">
+            <span class="publication-status">Minor Revision</span>
+            <h3 class="publication-title">Interpersonal communication environments and counterarguing intentions toward climate misinformation: The role of personal climate discussion networks, norms, and attitudes</h3>
+            <p class="publication-authors"><strong>Kim, J. Y.</strong>, Young, L. E., Kim, D., Curry, M., Wang, Z., Twyman, M., &amp; Yang, A.</p>
+            <p class="publication-venue"><em>Environment and Behavior</em>.</p>
+          </li>
+
+          <li class="publication">
+            <span class="publication-status">Minor Revision</span>
+            <h3 class="publication-title">Measuring social influence through behavioural data: A computational model of Social Value in networks</h3>
+            <p class="publication-authors">Kim, D., <strong>Kim, J. Y.</strong>, &amp; Wang, Z.</p>
+            <p class="publication-venue"><em>SAGE Research Methods: Data- and Research Literacy</em>.</p>
+          </li>
+
+          <li class="publication">
+            <span class="publication-status">Under Review</span>
+            <h3 class="publication-title">Socializing, learning, laughing: Motivational patterns in YouTube comments across gaming video types</h3>
+            <p class="publication-authors"><strong>Kim, J. Y.</strong>, &amp; Yang, A.</p>
+            <p class="publication-venue"><em>Computers in Human Behavior</em>.</p>
+          </li>
+
+          <li class="publication">
+            <span class="publication-status">Under Review</span>
+            <h3 class="publication-title">Understanding paying it forward in online gaming: A COM-B model approach in Sky: Children of the Light</h3>
+            <p class="publication-authors"><strong>Kim, J. Y.</strong>, &amp; Young, L. E.</p>
+            <p class="publication-venue"><em>Cyberpsychology, Behavior, and Social Networking</em>.</p>
+          </li>
+        </ol>
+      </section>
+
+      <section id="research-experience">
+        <h1 class="section-heading">Research Experience</h1>
+        <ul class="entry-list">
+          <li class="entry">
+            <div class="entry-date">Jan 2026–Present</div>
+            <div class="entry-body">
+              <h2 class="entry-title">Research Assistant, Annenberg Game Lab (TGG), University of Southern California</h2>
+              <ul>
+                <li>Lead bi-weekly meetings and prepare discussion materials.</li>
+                <li>Present data-analysis strategies for working with game data.</li>
+                <li>Lead survey planning for World of Tanks.</li>
+              </ul>
+            </div>
+          </li>
+
+          <li class="entry">
+            <div class="entry-date">Jan 2026–Present</div>
+            <div class="entry-body">
+              <h2 class="entry-title">Research Assistant, Social Value Lab (SV), University of Southern California</h2>
+              <ul>
+                <li>Model Social Value and Receptivity using random forest regression with game behavioral data.</li>
+                <li>Analyze network and behavioral data to examine relational influence dynamics in online game environments.</li>
+                <li>Prepare research discussion materials and coordinate bi-weekly meetings.</li>
+              </ul>
+            </div>
+          </li>
+
+          <li class="entry">
+            <div class="entry-date">Jan 2025–May 2026</div>
+            <div class="entry-body">
+              <h2 class="entry-title">Research Assistant, Annenberg Networks Network (ANN), University of Southern California</h2>
+              <ul>
+                <li>Led weekly meetings and prepared discussion materials for a climate-change misinformation project.</li>
+                <li>Analyzed survey data collected from Prolific.</li>
+                <li>Designed an experiment on conformity to climate-change information in social networks.</li>
+                <li>Conducted literature reviews to support project development.</li>
+              </ul>
+            </div>
+          </li>
+        </ul>
+      </section>
+
+      <section id="presentations">
+        <h1 class="section-heading">Conference Presentations</h1>
+        <ol class="presentation-list">
+          <li class="presentation">
+            <h3 class="presentation-title"><strong>Kim, J. Y.</strong>, Kim, D., &amp; Jung, B. Understanding Paying it Forward in Online Gaming: A COM-B Model Approach in <em>Sky: Children of the Light</em></h3>
+            <p class="presentation-meta">NCA 2026, Game Studies Division, New Orleans, Louisiana · November 2026</p>
+          </li>
+          <li class="presentation">
+            <h3 class="presentation-title"><strong>Kim, J. Y.</strong>, Kim, D., Curry, M., &amp; Wang, Z. Personal Discussion Networks Shape Counterarguing Intentions against Climate Misinformation Through Pro-Climate Norms and Attitudes</h3>
+            <p class="presentation-meta">ICA 2026, Environmental Communication Division, Cape Town, South Africa · June 2026</p>
+          </li>
+          <li class="presentation">
+            <h3 class="presentation-title">Kim, D., <strong>Kim, J. Y.</strong>, Wang, Z., Kim, N., &amp; Jung, B. When Influencers Use AI Agents: How Transparency Shapes Audience Reactions</h3>
+            <p class="presentation-meta">2026 Annenberg Graduate Fellowship Research and Creative Project Symposium, Los Angeles, California · April 2026</p>
+          </li>
+          <li class="presentation">
+            <h3 class="presentation-title"><strong>Kim, J. Y.</strong>, &amp; Curry, M. Social Influence and Spending Behavior in MMORPG Networks</h3>
+            <p class="presentation-meta">Korea University–University of Southern California Symposium · January 2026</p>
+          </li>
+          <li class="presentation">
+            <h3 class="presentation-title"><strong>Kim, J. Y.</strong>, Kim, D., Zhuo, S., Wang, Z., Williams, D., &amp; Yang, A. Different Gameplay Styles, Different Psychological Needs: Extending Relatedness Through Behavioral Indicators</h3>
+            <p class="presentation-meta">NCA 2025, Game Studies Division, Denver, Colorado · November 2025</p>
+          </li>
+          <li class="presentation">
+            <h3 class="presentation-title">Kim, D., Wang, Z., <strong>Kim, J. Y.</strong>, &amp; Jung, B. Cognitive and Affective Trust in Intention to Use Fully Autonomous LLM-Based Agents</h3>
+            <p class="presentation-meta">AEJMC 2025, Communication Technology Division, San Francisco, California · August 2025</p>
+          </li>
+          <li class="presentation">
+            <h3 class="presentation-title">Wang, Z., Cao, L., Kim, D., Jung, B., <strong>Kim, J. Y.</strong>, Yang, A., &amp; Williams, D. Quantifying Local Donation Networks: The Impact of Geographical Partisan Heterogeneity and News Use on Political Donation</h3>
+            <p class="presentation-meta">ICA 2025, Denver, Colorado · June 2025</p>
+          </li>
+          <li class="presentation">
+            <h3 class="presentation-title">Kim, D., Choi, E., Curry, M., Cao, L., Zhou, S., <strong>Kim, J. Y.</strong>, Leccese, M., Jung, B., Kim, N., Zeng, W., Brunn, L., Wang, Z., Yang, A., &amp; Williams, D. Exploring the Impact of Social Influence on Group Well-Being in Massively Multiplayer Online Games: Evidence from <em>Sky: Children of the Light</em></h3>
+            <p class="presentation-meta">ICA 2025, Game Studies Division, Denver, Colorado · June 2025</p>
+          </li>
+          <li class="presentation">
+            <h3 class="presentation-title"><strong>Kim, J. Y.</strong>, &amp; Miller, L. Do Violent versus Nonviolent Multiplayer Video Games Impact Subsequent Prosocial Behavior? A Meta-Analysis</h3>
+            <p class="presentation-meta">KACA Conference 2025, Washington, D.C. · May 2025</p>
+          </li>
+          <li class="presentation">
+            <h3 class="presentation-title"><strong>Kim, J. Y.</strong>, Cao, L., Isherwood, K., &amp; Jang, E. Fact-Checking and Mitigation Behavior Intentions of Climate Change Misinformation Memes among Individuals of Different Beliefs</h3>
+            <p class="presentation-meta">2025 Annenberg Graduate Fellowship Research and Creative Project Symposium, Los Angeles, California · April 2025</p>
+          </li>
+          <li class="presentation">
+            <h3 class="presentation-title"><strong>Kim, J. Y.</strong> Reveal the Users’ Needs that Motivate Watching Gaming Videos with Topic Modeling</h3>
+            <p class="presentation-meta">AEJMC 2024, Mass Communication and Society Division, Philadelphia, Pennsylvania · August 2024</p>
+          </li>
+        </ol>
+      </section>
+
+      <section id="awards">
+        <h1 class="section-heading">Awards &amp; Scholarships</h1>
+        <ul class="entry-list">
+          <li class="entry">
+            <div class="entry-date">2023–Present</div>
+            <div class="entry-body"><h2 class="entry-title">Annenberg Fellowship Award, University of Southern California</h2><p>Fellowship support and Teaching/Research Assistant appointment.</p></div>
+          </li>
+          <li class="entry">
+            <div class="entry-date">2025–2026</div>
+            <div class="entry-body"><h2 class="entry-title">Annenberg Graduate Fellowship Research and Creative Project Symposium Award</h2><p>Awarded for symposium presentation.</p></div>
+          </li>
+          <li class="entry">
+            <div class="entry-date">2026</div>
+            <div class="entry-body"><h2 class="entry-title">Annenberg Summer Educational Fellowship</h2><p>Support for participation in the SCoDA Workshop: Statistics on Complex Data at Seoul National University.</p></div>
+          </li>
+          <li class="entry">
+            <div class="entry-date">2025</div>
+            <div class="entry-body"><h2 class="entry-title">Student Success Fund, University of Southern California</h2><p>Support for extra- and co-curricular academic programs.</p></div>
+          </li>
+          <li class="entry">
+            <div class="entry-date">2016–2020</div>
+            <div class="entry-body"><h2 class="entry-title">Dean’s List, Ewha Womans University</h2><p>Recognized for completing more than 15 credits with no failed courses and a minimum semester GPA of 3.75.</p></div>
+          </li>
+          <li class="entry">
+            <div class="entry-date">2016–2020</div>
+            <div class="entry-body"><h2 class="entry-title">Honor Scholarship, Ewha Womans University</h2><p>Awarded for academic excellence, top 2% by year level.</p></div>
+          </li>
+          <li class="entry">
+            <div class="entry-date">2017</div>
+            <div class="entry-body"><h2 class="entry-title">Ewha Boston Alumnae Scholarship</h2><p>Awarded for outstanding academic performance and clear future goals.</p></div>
+          </li>
+        </ul>
+      </section>
+
+      <section id="teaching-service">
+        <h1 class="section-heading">Teaching &amp; Service</h1>
+
+        <h2 class="subheading">Teaching Experience</h2>
+        <ul class="entry-list">
+          <li class="entry">
+            <div class="entry-date">Aug 2024–Dec 2025</div>
+            <div class="entry-body">
+              <h2 class="entry-title">Teaching Assistant, Uses of Communication Research, University of Southern California</h2>
+              <p>Supported master’s students in statistical analysis with SPSS and in applying quantitative methods, including surveys and experiments.</p>
+            </div>
+          </li>
+          <li class="entry">
+            <div class="entry-date">Jan–May 2025</div>
+            <div class="entry-body">
+              <h2 class="entry-title">Teaching Assistant, Communication Management Pro-Seminar, University of Southern California</h2>
+              <p>Supported master’s students in research-paper writing, with emphasis on organization, clarity, and APA style.</p>
+            </div>
+          </li>
+        </ul>
+
+        <div class="two-column">
+          <div class="subcard">
+            <h2 class="subheading">Peer Review</h2>
+            <ul class="compact-list">
+              <li><em>International Journal of Communication</em>, 2026</li>
+              <li>National Communication Association, Game Studies Division, 2024–2026</li>
+              <li>International Communication Association, Game Studies and Environmental Communication Divisions, 2024–2026</li>
+              <li>Korean American Communication Association Conference, 2025–2026</li>
+              <li>Association for Education in Journalism and Mass Communication, Mass Communication and Society and Communication Technology Divisions, 2024–2025</li>
+            </ul>
+          </div>
+
+          <div class="subcard">
+            <h2 class="subheading">Professional &amp; Campus Service</h2>
+            <p><strong>KACA–NCA Student Representative</strong>, November 2025–November 2026</p>
+            <ul class="compact-list">
+              <li>Organize the KACA graduate student social event at the National Communication Association annual convention.</li>
+              <li>Promote graduate student engagement and networking within the Korean American communication research community.</li>
+              <li>Collaborate with the KACA Executive Board on student-focused initiatives.</li>
+            </ul>
+            <p><strong>Vice President, USC Korean Graduate Student Association</strong>, August 2024–May 2025</p>
+            <ul class="compact-list">
+              <li>Organized networking events, career-development workshops, and academic workshops for Korean graduate students.</li>
+              <li>Managed the association’s operations, budgets, and communications.</li>
+              <li>Collaborated with student organizations and universities, including UCLA and Caltech, to provide support and resources.</li>
+            </ul>
+            <p><strong>Ewha Student Ambassador</strong>, March–August 2018</p>
+            <ul class="compact-list">
+              <li>Visited high schools in Korea and used media materials tailored to student needs to introduce Ewha Womans University.</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="two-column" style="margin-top: 1rem;">
+          <div class="subcard">
+            <h2 class="subheading">Skills</h2>
+            <p class="muted">Python, natural language processing, machine learning and transformer models, R, and SPSS.</p>
+          </div>
+          <div class="subcard">
+            <h2 class="subheading">Languages</h2>
+            <p class="muted">Korean: Native · English: Fluent · Japanese: Intermediate</p>
+          </div>
+        </div>
+
+        <h2 class="subheading">Additional Experience</h2>
+        <ul class="entry-list">
+          <li class="entry">
+            <div class="entry-date">Mar 2019</div>
+            <div class="entry-body">
+              <h2 class="entry-title">Contest Participant, SKT 0 Fitial Contest, Seoul, South Korea</h2>
+              <p>Planned and executed a public-relations campaign for adults in their 20s and 30s and designed the campaign process on Instagram.</p>
+            </div>
+          </li>
+          <li class="entry">
+            <div class="entry-date">Feb 2018</div>
+            <div class="entry-body">
+              <h2 class="entry-title">Camera Director Assistant, Olympic Broadcasting Services, Gangneung, South Korea</h2>
+              <p>Assisted camera directors at the PyeongChang 2018 Olympic Winter Games by arranging the shooting environment and materials.</p>
+            </div>
+          </li>
+        </ul>
+      </section>
+    </main>
+  </div>
+
+  <footer class="site-footer">
+    <p>© <span id="current-year"></span> Ji Ye Kim.</p>
+  </footer>
+
+  <script>
+    const toggle = document.querySelector('.nav-toggle');
+    const menu = document.querySelector('.masthead__menu');
+    const navLinks = [...document.querySelectorAll('.masthead__menu a[href^="#"]')];
+    const sections = [...document.querySelectorAll('main section[id]')];
+
+    toggle?.addEventListener('click', () => {
+      const isOpen = menu.classList.toggle('open');
+      toggle.setAttribute('aria-expanded', String(isOpen));
+    });
+
+    navLinks.forEach((link) => {
+      link.addEventListener('click', () => {
+        menu.classList.remove('open');
+        toggle?.setAttribute('aria-expanded', 'false');
+      });
+    });
+
+    const observer = new IntersectionObserver((entries) => {
+      const visible = entries
+        .filter((entry) => entry.isIntersecting)
+        .sort((a, b) => b.intersectionRatio - a.intersectionRatio)[0];
+
+      if (!visible) return;
+
+      navLinks.forEach((link) => {
+        link.classList.toggle('active', link.getAttribute('href') === `#${visible.target.id}`);
+      });
+    }, {
+      rootMargin: '-18% 0px -68% 0px',
+      threshold: [0.02, 0.15, 0.4]
+    });
+
+    sections.forEach((section) => observer.observe(section));
+    document.getElementById('current-year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>

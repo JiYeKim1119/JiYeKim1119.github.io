@@ -5,6 +5,7 @@
 /*
    Default
    ========================================================================== */
+/* _sidebar.scss */
 
 .sidebar {
   -webkit-transform: translate3d(0, 0, 0);
@@ -14,15 +15,16 @@
   margin-bottom: 1em;
 
   @include breakpoint($large) {
-    @include span(4 of 12);
+    float: none;
+    width: calc(33.333% - 1rem);
+    flex-shrink: 0;
 
     position: sticky;
     top: 80px;
-
-    align-self: flex-start;
     height: fit-content;
 
     opacity: 1;
+
     -webkit-transition: opacity 0.2s ease-in-out;
             transition: opacity 0.2s ease-in-out;
 

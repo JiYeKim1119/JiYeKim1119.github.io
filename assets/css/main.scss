@@ -479,10 +479,11 @@ body {
 
 /* 3. Gradient text for section headings */
 .page__content h1 {
-  background: linear-gradient(110deg, #1e3a8a 0%, #2563eb 50%, #0284c7 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
+  background: none;
+  color: var(--accent-1);
+  -webkit-background-clip: initial;
+  -webkit-text-fill-color: initial;
+  background-clip: initial;
 }
 
 /* 4. Paper-box: inset left accent stripe on hover */
@@ -934,4 +935,8 @@ html, body {
     font-size: 0.62em;
     padding: 0.16em 0.5em;
   }
+}
+
+#bg-orbs {
+  display: none !important;
 }

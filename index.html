@@ -718,6 +718,30 @@
         transition-duration: 0.01ms !important;
       }
     }
+    /* Make Email and CV visibly clickable */
+    .author__urls a[href^="mailto:"] .url-value,
+    .author__urls a[href$=".pdf"] .url-value {
+    color: var(--accent-2);
+    font-weight: 500;
+    text-decoration: underline;
+    text-underline-offset: 3px;
+    text-decoration-thickness: 1px;
+}
+
+  .author__urls a[href^="mailto:"]:hover .url-value,
+  .author__urls a[href$=".pdf"]:hover .url-value {
+    color: var(--accent-1);
+}
+ 
+  .author__urls a[href^="mailto:"] .url-value::after {
+  content: " ✉️";
+  font-size: 0.9em;
+}
+
+  .author__urls a[href$=".pdf"] .url-value::after {
+    content: " ↗";
+    font-size: 0.9em;
+}
   </style>
 </head>
 <body>
@@ -755,7 +779,6 @@
         <ul class="author__urls">
           <li><span><span class="url-label">Location</span><span class="url-value">Los Angeles, CA</span></span></li>
           <li><a href="mailto:jiyek@usc.edu"><span class="url-label">Email</span><span class="url-value">jiyek@usc.edu</span></a></li>
-          <li><a href="https://github.com/JiYeKim1119" target="_blank" rel="noopener"><span class="url-label">GitHub</span><span class="url-value">JiYeKim1119</span></a></li>
           <li><a href="./files/JiYeKim_CV_2026.pdf" target="_blank" rel="noopener"><span class="url-label">CV</span><span class="url-value">View PDF</span></a></li>
         </ul>
       </div>
@@ -856,28 +879,24 @@
             <span class="publication-status">Minor Revision</span>
             <h3 class="publication-title">Interpersonal communication environments and counterarguing intentions toward climate misinformation: The role of personal climate discussion networks, norms, and attitudes</h3>
             <p class="publication-authors"><strong>Kim, J. Y.</strong>, Young, L. E., Kim, D., Curry, M., Wang, Z., Twyman, M., &amp; Yang, A.</p>
-            <p class="publication-venue"><em>Environment and Behavior</em>.</p>
           </li>
 
           <li class="publication">
             <span class="publication-status">Minor Revision</span>
             <h3 class="publication-title">Measuring social influence through behavioural data: A computational model of Social Value in networks</h3>
             <p class="publication-authors">Kim, D., <strong>Kim, J. Y.</strong>, &amp; Wang, Z.</p>
-            <p class="publication-venue"><em>SAGE Research Methods: Data- and Research Literacy</em>.</p>
           </li>
 
           <li class="publication">
             <span class="publication-status">Under Review</span>
             <h3 class="publication-title">Socializing, learning, laughing: Motivational patterns in YouTube comments across gaming video types</h3>
             <p class="publication-authors"><strong>Kim, J. Y.</strong>, &amp; Yang, A.</p>
-            <p class="publication-venue"><em>Computers in Human Behavior</em>.</p>
           </li>
 
           <li class="publication">
             <span class="publication-status">Under Review</span>
             <h3 class="publication-title">Understanding paying it forward in online gaming: A COM-B model approach in Sky: Children of the Light</h3>
             <p class="publication-authors"><strong>Kim, J. Y.</strong>, &amp; Young, L. E.</p>
-            <p class="publication-venue"><em>Cyberpsychology, Behavior, and Social Networking</em>.</p>
           </li>
         </ol>
       </section>

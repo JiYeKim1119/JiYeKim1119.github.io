@@ -940,3 +940,11 @@ html, body {
 #bg-orbs {
   display: none !important;
 }
+
+@media (min-width: 925px) {
+  .sidebar {
+    position: sticky;
+    top: 80px;
+    align-self: flex-start;
+  }
+}
